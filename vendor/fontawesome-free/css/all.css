@@ -705,28 +705,28 @@ readers do not read off random characters that represent icons */
 .fa-calculator:before {
   content: "\f1ec"; }
 
-.fa-calendar:before {
+.:before {
   content: "\f133"; }
 
-.fa-calendar-alt:before {
+.-alt:before {
   content: "\f073"; }
 
-.fa-calendar-check:before {
+.-check:before {
   content: "\f274"; }
 
-.fa-calendar-day:before {
+.-day:before {
   content: "\f783"; }
 
-.fa-calendar-minus:before {
+.-minus:before {
   content: "\f272"; }
 
-.fa-calendar-plus:before {
+.-plus:before {
   content: "\f271"; }
 
-.fa-calendar-times:before {
+.-times:before {
   content: "\f273"; }
 
-.fa-calendar-week:before {
+.-week:before {
   content: "\f784"; }
 
 .fa-camera:before {

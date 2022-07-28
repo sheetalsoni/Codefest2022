@@ -139,13 +139,6 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            <!-- Sidebar Message -->
-            <div class="sidebar-card d-none d-lg-flex">
-                <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
-                <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
-                <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
-            </div>
-
         </ul>
         <!-- End of Sidebar -->
 
@@ -383,7 +376,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">121</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fas fa-list fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -401,7 +394,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">80</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            <i class="fas fa-map fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -430,7 +423,7 @@
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                                            <i class="fas fa-tasks fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -448,7 +441,7 @@
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                            <i class="fas fa-truck fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -466,7 +459,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Earnings Overview</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Order Picking</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -484,8 +477,8 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                    <div class="chart-area">
-                                        <canvas id="myAreaChart"></canvas>
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -497,7 +490,7 @@
                                 <!-- Card Header - Dropdown -->
                                 <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Picking Status</h6>
                                     <div class="dropdown no-arrow">
                                         <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -520,13 +513,13 @@
                                     </div>
                                     <div class="mt-4 text-center small">
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-primary"></i> Direct
+                                            <i class="fas fa-circle text-warning"></i> On Time
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-success"></i> Social
+                                            <i class="fas fa-circle text-success"></i> Before Time
                                         </span>
                                         <span class="mr-2">
-                                            <i class="fas fa-circle text-info"></i> Referral
+                                            <i class="fas fa-circle text-danger"></i> Late
                                         </span>
                                     </div>
                                 </div>
@@ -585,7 +578,7 @@
                                     <div class="card bg-primary text-white shadow">
                                         <div class="card-body">
                                             Primary
-                                            <div class="text-white-50 small">#4e73df</div>
+                                            <div class="text-white-50 small">#424242</div>
                                         </div>
                                     </div>
                                 </div>
@@ -593,7 +586,7 @@
                                     <div class="card bg-success text-white shadow">
                                         <div class="card-body">
                                             Success
-                                            <div class="text-white-50 small">#1cc88a</div>
+                                            <div class="text-white-50 small">#56821f</div>
                                         </div>
                                     </div>
                                 </div>
@@ -648,42 +641,117 @@
                             </div>
 
                         </div>
+                        
+                    </div>
+                    
+                    <div class="row">
+                        <div class="card shadow col-lg-12 mb-12">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Today's Loading Status</h6>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Route Load</th>
+                                                <th>Dock</th>
+                                                <th>Door</th>
+                                                <th>Dispatch</th>
+                                                <th>Selected</th>
+                                                <th>Loaded</th>
+                                                <th>Invoiced</th>
+                                                <th>Load Status</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Route Load</th>
+                                                <th>Dock</th>
+                                                <th>Door</th>
+                                                <th>Dispatch</th>
+                                                <th>Selected</th>
+                                                <th>Loaded</th>
+                                                <th>Invoiced</th>
+                                                <th>Load Status</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            <tr>
+                                                <td>3312</td>
+                                                <td>F</td>
+                                                <td>13</td>
+                                                <td>8:00 PM</td>
+                                                <td>6:00 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>8:00 PM</td>
+                                                <td>On Time</td>
+                                                <td>Completed</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3313</td>
+                                                <td>C/D</td>
+                                                <td>14</td>
+                                                <td>8:00 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>7:45 PM</td>
+                                                <td>8:15 PM</td>
+                                                <td>Delayed (15 Minutes)</td>
+                                                <td>In Process</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3314</td>
+                                                <td>F</td>
+                                                <td>15</td>
+                                                <td>8:00 PM</td>
+                                                <td>6:00 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>Before Time (30 Minutes)</td>
+                                                <td>Completed</td>
+                                            </tr>
 
-                        <div class="col-lg-6 mb-4">
-
-                            <!-- Illustrations -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Illustrations</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="...">
-                                    </div>
-                                    <p>Add some quality, svg illustrations to your project courtesy of <a
-                                            target="_blank" rel="nofollow" href="https://undraw.co/">unDraw</a>, a
-                                        constantly updated collection of beautiful svg images that you can use
-                                        completely free and without attribution!</p>
-                                    <a target="_blank" rel="nofollow" href="https://undraw.co/">Browse Illustrations on
-                                        unDraw &rarr;</a>
+                                            <tr>
+                                                <td>3315</td>
+                                                <td>F</td>
+                                                <td>13</td>
+                                                <td>8:30 PM</td>
+                                                <td>6:00 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>8:00 PM</td>
+                                                <td>On Time</td>
+                                                <td>Completed</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3316</td>
+                                                <td>C/D</td>
+                                                <td>14</td>
+                                                <td>8:30 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>7:45 PM</td>
+                                                <td>8:15 PM</td>
+                                                <td>Delayed (15 Minutes)</td>
+                                                <td>In Process</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3317</td>
+                                                <td>F</td>
+                                                <td>15</td>
+                                                <td>8:30 PM</td>
+                                                <td>6:00 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>7:30 PM</td>
+                                                <td>Before Time (30 Minutes)</td>
+                                                <td>Completed</td>
+                                            </tr>
+                                            
+                                            
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
-                            <!-- Approach -->
-                            <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Development Approach</h6>
-                                </div>
-                                <div class="card-body">
-                                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce
-                                        CSS bloat and poor page performance. Custom CSS classes are used to create
-                                        custom components and custom utility classes.</p>
-                                    <p class="mb-0">Before working with this theme, you should become familiar with the
-                                        Bootstrap framework, especially the utility classes.</p>
-                                </div>
-                            </div>
-
                         </div>
                     </div>
 
@@ -749,6 +817,7 @@
 
     <!-- Page level custom scripts -->
     <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-bar-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
